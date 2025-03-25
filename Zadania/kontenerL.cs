@@ -3,12 +3,12 @@ namespace Zadania;
 public class KontenerL : Kontener, IHazardNotifier
 {
     public bool IsHazardous { get; set; }
-    private static int counter = 1;
+    private static int _counter = 1;
 
     public KontenerL(int payload, int height, int deadWeight, int depth, string serialNumber, int maxpayload, bool isHazardous) : base(payload, height, deadWeight, depth, serialNumber, maxpayload)
     {
         IsHazardous = isHazardous;
-        SerialNumber = $"KON-L-{counter++}";
+        SerialNumber = $"KON-L-{_counter++}";
     }
 
 
