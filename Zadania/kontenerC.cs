@@ -5,12 +5,12 @@ public class KontenerC : Kontener
     public string ProductType { get; set; }
     public double Temperature { get; set; }
 
-    private static int counter = 1;
+    private static int _counter = 1;
     public KontenerC(int payload, int height, int deadWeight, int depth, string serialNumber, int maxpayload, string productType, double temperature) : base(payload, height, deadWeight, depth, serialNumber, maxpayload)
     {
         ProductType = productType;
         Temperature = temperature;
-        SerialNumber = $"KON-C-{counter++}";
+        SerialNumber = $"KON-C-{_counter++}";
     }
 
 
