@@ -25,18 +25,21 @@ public class KontenerC : Kontener
 
     private double ProductRequiredTemperature(string productType)
     {
+        productType = productType.ToLower();
+        
         return productType.ToLower() switch
         {
-            "Bananas" => 13.3,
-            "Chocolate" => 18,
-            "Fish" => 2,
-            "Meat" => -15,
-            "IceCream" => -18,
-            "FrozenPizza" => -30,
-            "Cheese" => 7.2,
-            "Sausages" => 5,
-            "Butter" => 20.5,
-            "Eggs" => 19,
+            "bananas" => 13.3,
+            "chocolate" => 18,
+            "fish" => 2,
+            "meat" => -15,
+            "iceCream" => -18,
+            "frozenPizza" => -30,
+            "cheese" => 7.2,
+            "sausages" => 5,
+            "butter" => 20.5,
+            "eggs" => 19,
+            _ => throw new Exception($"Unknown product type: {productType}")
         };
     }
     

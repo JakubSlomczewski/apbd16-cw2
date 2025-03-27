@@ -7,7 +7,7 @@ Console.WriteLine("=== SYMULACJA SYSTEMU KONTENEROWEGO ===\n");
         var statek2 = new Statek("Neptun", 20, 3, 40_000);
 
         // Tworzenie kontenerów
-        var kontenerC = new KontenerC(0, 240, 2000, 600, "", 10000, "Bananas", 12);
+        var kontenerC = new KontenerC(0, 240, 2000, 600, "", 10000, "bananas", 12);
         var kontenerG = new KontenerG(0, 240, 2500, 600, "", 8000, 5.5);
         var kontenerL = new KontenerL(0, 240, 1800, 600, "", 9000, true);
 
@@ -50,9 +50,15 @@ Console.WriteLine("=== SYMULACJA SYSTEMU KONTENEROWEGO ===\n");
         statek2.StatekInfo();
 
         //Test przekroczenia limitu
-        var kontenerZaDuzy = new KontenerC(0, 240, 30_000, 600, "", 40_000, "Fish", 5);
-        kontenerZaDuzy.LoadPayload(15_000);
-
-        statek2.AddKontener(kontenerZaDuzy);
+        try
+        {
+            var kontenerZaDuzy = new KontenerC(0, 240, 30000, 600, "", 40000, "fish", 5);
+            kontenerZaDuzy.LoadPayload(15000);
+            statek2.AddKontener(kontenerZaDuzy);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[ERROR] " + ex.Message);
+        }
 
         Console.WriteLine("\n=== KONIEC TESTU ===");
